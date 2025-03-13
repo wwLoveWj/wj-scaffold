@@ -3,7 +3,7 @@
 const yargs = require("yargs");
 const path = require("path");
 const { inquirerPrompt } = require("./inquirer");
-const { copyDir } = require("./copy");
+const { checkMkdirExists, copyFile } = require("./copy");
 // copyFile 和 copyDir 使用的区别在参数，copyFile 要求参数 from 和参数 to 都精确到文件路径。
 
 yargs.command(
