@@ -3,8 +3,7 @@
 const yargs = require("yargs");
 const path = require("path");
 const { inquirerPrompt } = require("./inquirer");
-const { checkMkdirExists, copyFile } = require("./copy");
-// copyFile 和 copyDir 使用的区别在参数，copyFile 要求参数 from 和参数 to 都精确到文件路径。
+const { checkMkdirExists, copyTemplate } = require("./copy");
 
 yargs.command(
   ["create", "c"],
@@ -26,8 +25,8 @@ yargs.command(
       if (isMkdirExists) {
         console.log(`${name}/index.js文件已经存在`);
       } else {
-        copyFile(
-          path.resolve(__dirname, `./template/${type}/index.js`),
+        copyTemplate(
+          path.resolve(__dirname, `./template/${type}/index.tpl`),
           path.resolve(process.cwd(), `./src/pages/${name}/index.js`),
           {
             name,
