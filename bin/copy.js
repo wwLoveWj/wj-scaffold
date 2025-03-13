@@ -27,6 +27,17 @@ function checkMkdirExists(path) {
   return fs.existsSync(path);
 }
 
+function copyFile(from, to) {
+  const buffer = fs.readFileSync(from);
+  const parentPath = path.dirname(to);
+
+  mkdirGuard(parentPath);
+
+  fs.writeFileSync(to, buffer);
+}
+
+exports.copyFile = copyFile;
+// 链接：https://juejin.cn/post/7260144602471776311
 exports.checkMkdirExists = checkMkdirExists;
 exports.mkdirGuard = mkdirGuard;
 exports.copyDir = copyDir;
