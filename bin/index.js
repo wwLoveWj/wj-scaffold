@@ -3,7 +3,8 @@
 const yargs = require("yargs");
 const path = require("path");
 const { inquirerPrompt } = require("./inquirer");
-const { checkMkdirExists, copyTemplate } = require("./copy");
+const { copyTemplate, checkMkdirExists } = require("./copy");
+const { install } = require("./install");
 
 yargs.command(
   ["create", "c"],
@@ -32,6 +33,7 @@ yargs.command(
             name,
           }
         );
+        install(process.cwd(), answers);
       }
     });
   }
