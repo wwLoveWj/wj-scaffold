@@ -12,7 +12,9 @@ const LibraryMap = {
 
 function install(cmdPath, options) {
   const { frame, library } = options;
+
   const command = `yarn add ${frame} && yarn add ${LibraryMap[library]}`;
+  console.log(command, options);
   return new Promise(function (resolve, reject) {
     const spinner = ora();
     spinner.start(`正在安装依赖，请稍等`);

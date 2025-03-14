@@ -56,7 +56,7 @@ yargs.command(
               console.log(
                 "Repository downloaded from branch or tag successfully"
               );
-              install(path.join(__dirname, "my-repo"), answers);
+              install(path.join(process.cwd(), name), answers);
             }
           }
         );
