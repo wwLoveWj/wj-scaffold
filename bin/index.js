@@ -26,7 +26,7 @@ yargs.command(
       );
       if (isMkdirExists) {
         console.log(`${name}/index.js文件已经存在`);
-        console.log(__filename, "ppo----------");
+        console.log(__filename, "------文件安装路径----");
       } else {
         // copyTemplate(
         //   path.resolve(__dirname, `./template/${type}/index.tpl`),
@@ -35,12 +35,19 @@ yargs.command(
         //     name,
         //   }
         // );
-        console.log("下载中", path.join(__dirname, "my-repo"), process.cwd());
+        console.log(
+          "下载的项目路径",
+          path.join(__dirname, name),
+          process.cwd(),
+          "当前操作路径",
+          path.join(process.cwd(), name)
+        );
+        //  process.cwd();
+        // 下载远程仓库上的代码
         download(
           // "direct:https://github.com/wwLoveWj/nodejs-basic.git#main", // 指定要下载的 Git 仓库，这里是 GitHub 上的 `username/repository`
           "direct:https://github.com/wwLoveWj/nodejs-basic/archive/refs/heads/main.zip#main",
-          //   "destination-folder",
-          path.join(__dirname, "my-repo"), // 指定下载的目标目录，这里将下载到当前目录下的 `my-repo` 目录
+          path.join(process.cwd(), name), // 指定下载的目标目录，这里将下载到当前目录下的 `my-repo` 目录
           // { clone: true }, // 指定要下载的分支或标签，例如 `master` 或 `v1.0.0`
           (err) => {
             if (err) {
