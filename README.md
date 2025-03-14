@@ -8,6 +8,8 @@ ww c -- --n Input
 
 ### 模板
 
+ww create -- --name=OrderPage
+
 ```
 import React from 'react';
 const {{name}} = () => {

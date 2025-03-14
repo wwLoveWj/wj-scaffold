@@ -8,8 +8,11 @@
   },
   "dependencies": {
     "copy-dir": "^1.3.0",
+    "download-git-repo": "^3.0.2",
     "inquirer": "8.2.5",
     "mustache": "^4.2.0",
+    "npmlog": "^7.0.1",
+    "ora": "5.4.1",
     "ww-cli": "workspace:*",
     "yargs": "^17.7.2"
   },

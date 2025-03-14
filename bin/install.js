@@ -1,6 +1,7 @@
 const path = require("path");
 const { exec } = require("child_process");
 const ora = require("ora");
+const log = require("./log");
 
 const LibraryMap = {
   "Ant Design": "antd",
@@ -27,6 +28,7 @@ function install(cmdPath, options) {
           return;
         }
         spinner.succeed(`依赖安装成功`);
+        log.info("cli", "use local package version");
         resolve();
       }
     );
